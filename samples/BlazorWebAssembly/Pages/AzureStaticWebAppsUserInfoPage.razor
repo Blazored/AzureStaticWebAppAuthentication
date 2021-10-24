@@ -1,0 +1,46 @@
+@page "/AzureStaticWebAppsUserInfo"
+@inject IAzureStaticWebAppUserProvider _azureStaticWebAppUserProvider
+@attribute [Authorize]
+
+<div class="content is-large">
+    @if (ClientPrincipal is not null)
+    {
+        <h1>Hello, @ClientPrincipal.UserDetails</h1>
+        <p>You gained access to this part of the site by logging in via @ClientPrincipal.IdentityProvider. </p>
+        <p>You unique user id is @ClientPrincipal.UserId </p>
+
+        <h4>Roles</h4>
+
+        <hr/>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Role</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var role in ClientPrincipal.UserRoles)
+            {
+                <tr>
+                    <th>@role</th>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1>You should not be seeing this page.</h1>
+    }
+</div>
+
+@code {
+    ClientPrincipal? ClientPrincipal { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ClientPrincipal = await _azureStaticWebAppUserProvider.GetCurrentUserAsync();
+        await base.OnInitializedAsync();
+    }
+}
