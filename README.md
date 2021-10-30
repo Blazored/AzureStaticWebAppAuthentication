@@ -1,11 +1,11 @@
 # Blazored.AzureStaticWebAppAuthentication
 Some helper libraries for using Blazor with azure static web apps.
 
-* Live Demo: add-live-demo-link
+* Live Demo: Coming Soon ....
 
 ## Getting Started
 
-Install Nuget package ...........
+Install Nuget package Coming Soon
 
 Add the following code to your `Program.cs` file for your blazor wasm application.
 
