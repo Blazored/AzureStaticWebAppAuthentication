@@ -1,0 +1,53 @@
+@page "/CascadingUserInfo"
+@attribute [Authorize]
+
+<div class="content is-large">
+    @if (State.User.Identity is not null && State.User.Identity.IsAuthenticated)
+    {
+        <h1>Hello, @State.User.Identity.Name</h1>
+        <p>You gained access to this part of the site by logging in via @State.User.Identity.AuthenticationType. </p>
+
+        <h4>Claims</h4>
+
+        <hr/>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Claim Type</th>
+                <th>Claim Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var role in State.User.Claims)
+            {
+                <tr>
+                    <th>@role.Type</th>
+                    <th>@role.Value</th>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1>You should not be seeing this page.</h1>
+    }
+</div>
+
+
+@code {
+
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthenticationStateTask { get; set; } = null!;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        State = await AuthenticationStateTask;
+        await base.OnParametersSetAsync();
+    }
+
+
+    AuthenticationState State { get; set; } = null!;
+
+}

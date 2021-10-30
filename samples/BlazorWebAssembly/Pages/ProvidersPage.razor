@@ -1,0 +1,138 @@
+@page "/providers"
+@inject IAzureStaticWebAppNavigationService _azureStaticWebAppNavigationService
+
+<section class="hero mb-2">
+    <div class="hero-body">
+        <div class="is-flex is-justify-content-center is-align-items-center">
+            <i class="fa fa-5x fa-sign-in-alt  mr-5"></i>
+            <div>
+                <p class="title">
+                    Login Providers
+                </p>
+                <p class="subtitle">
+                    You can gain authorization to this site using one of the below providers, all are supported by <strong>Azure Static Web Apps.</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr class="has-background-dark"/>
+</section>
+<section>
+    <div class="columns is-multiline">
+        
+        <div class="column is-full">
+            <div class="content">
+                <h2>Login providers</h2>
+            </div>
+        </div>
+
+        <div class="column is-full">
+            <button @onclick="@GitHubLogin" class="button is-dark is-outlined is-large is-fullwidth">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>GitHub</span>
+            </button>
+        </div>
+
+        <div class="column is-full">
+            <button @onclick="@TwitterLogin" class="button is-info is-outlined is-large is-fullwidth">
+                <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                </span>
+                <span>Twitter</span>
+            </button>
+        </div>
+
+        <div class="column is-full">
+            <button @onclick="@MicrosoftLogin" class="button is-primary is-outlined is-large is-fullwidth">
+                <span class="icon">
+                    <i class="fab fa-microsoft"></i>
+                </span>
+                <span>Microsoft</span>
+            </button>
+        </div>
+
+        <div class="column is-full">
+            <div class="content">
+                <h2>Login with redirects</h2>
+            </div>
+        </div>
+
+        <div class="column is-full">
+            <div class="control has-icons-left has-icons-right mb-2">
+                <input @bind="@RedirectUrl" class="input is-large" type="url" placeholder="Redirect URL"/>
+                <span class="icon is-medium is-left">
+                    <i class="fas fa-globe"></i>
+                </span>
+            </div>
+            <div class="columns">
+                <div class="column is-one-third">
+                    <button @onclick="@MicrosoftWithRedirect" class="button is-primary is-outlined is-large is-fullwidth">
+                        <span class="icon">
+                            <i class="fab fa-microsoft"></i>
+                        </span>
+                        <span>Microsoft with redirect</span>
+                    </button>
+                </div>
+                <div class="column is-one-third">
+                    <button @onclick="@TwitterWithRedirect" class="button is-info is-outlined is-large is-fullwidth">
+                        <span class="icon">
+                            <i class="fab fa-twitter"></i>
+                        </span>
+                        <span>Twitter with redirect</span>
+                    </button>
+                </div>
+                <div class="column is-one-third">
+                    <button @onclick="@GitHubWithRedirect" class="button is-dark is-outlined is-large is-fullwidth">
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                        <span>GitHub with redirect</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+@code {
+
+    string RedirectUrl { get; set; } = "https://www.google.co.uk/";
+
+    void GitHubLogin() => _azureStaticWebAppNavigationService
+        .Login()
+        .WithGithub()
+        .Navigate();
+
+    void TwitterLogin() => _azureStaticWebAppNavigationService
+        .Login()
+        .WithTwitter()
+        .Navigate();
+
+    void MicrosoftLogin() => _azureStaticWebAppNavigationService
+        .Login()
+        .WithAzureActiveDirectory()
+        .Navigate();
+
+    void MicrosoftWithRedirect() => _azureStaticWebAppNavigationService
+        .Login()
+        .WithAzureActiveDirectory()
+        .WithRedirect(RedirectUrl)
+        .Navigate();
+
+    void TwitterWithRedirect() => _azureStaticWebAppNavigationService
+        .Login()
+        .WithTwitter()
+        .WithRedirect(RedirectUrl)
+        .Navigate();
+
+    void GitHubWithRedirect() => _azureStaticWebAppNavigationService
+        .Login()
+        .WithGithub()
+        .WithRedirect(RedirectUrl)
+        .Navigate();
+
+}

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2C33E1B4-82B0-4C16-8DB2-285692986E07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BEA7C79A-46E5-49A3-A07E-84557833B7AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{86913BC8-E97C-47BE-9F76-697994C8BC6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{FDCC3110-4081-4E77-AA79-31640FDD80FB}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly", "samples\BlazorWebAssembly\BlazorWebAssembly.csproj", "{A1D6C81A-2DAC-4896-AB89-1DAE8D2B9B9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazored.AzureStaticWebAppAuthentication", "src\Blazored.AzureStaticWebAppAuthentication\Blazored.AzureStaticWebAppAuthentication.csproj", "{5645D482-4BD1-4410-A0BD-96052764993A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazored.AzureStaticWebAppAuthentication.Tests", "tests\Blazored.AzureStaticWebAppAuthentication.Tests\Blazored.AzureStaticWebAppAuthentication.Tests.csproj", "{AEC79420-9351-48A0-89C6-EA3B8B75FAB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1D6C81A-2DAC-4896-AB89-1DAE8D2B9B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1D6C81A-2DAC-4896-AB89-1DAE8D2B9B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1D6C81A-2DAC-4896-AB89-1DAE8D2B9B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1D6C81A-2DAC-4896-AB89-1DAE8D2B9B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5645D482-4BD1-4410-A0BD-96052764993A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5645D482-4BD1-4410-A0BD-96052764993A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5645D482-4BD1-4410-A0BD-96052764993A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5645D482-4BD1-4410-A0BD-96052764993A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEC79420-9351-48A0-89C6-EA3B8B75FAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEC79420-9351-48A0-89C6-EA3B8B75FAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEC79420-9351-48A0-89C6-EA3B8B75FAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEC79420-9351-48A0-89C6-EA3B8B75FAB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1D6C81A-2DAC-4896-AB89-1DAE8D2B9B9F} = {86913BC8-E97C-47BE-9F76-697994C8BC6B}
+		{5645D482-4BD1-4410-A0BD-96052764993A} = {2C33E1B4-82B0-4C16-8DB2-285692986E07}
+		{AEC79420-9351-48A0-89C6-EA3B8B75FAB4} = {BEA7C79A-46E5-49A3-A07E-84557833B7AD}
+	EndGlobalSection
+EndGlobal

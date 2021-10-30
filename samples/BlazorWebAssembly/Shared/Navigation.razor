@@ -1,0 +1,92 @@
+@inject IAzureStaticWebAppNavigationService _azureStaticWebAppNavigationService;
+
+<nav class="navbar is-white" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <NavLink href="/" class="navbar-item is-size-4">
+            BlazorWebAssembly
+        </NavLink>
+
+
+        <a @onclick="@ToggleBurger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <hr class="navbar-divider"/>
+
+
+    <div class="@NavBarMenuClass">
+        <div class="navbar-start">
+            <NavLink href="providers" class="navbar-item">
+                <span class="icon-text has-text-dark">
+                    <span class="icon">
+                        <i class="fa fa-sign-in-alt"></i>
+                    </span>
+                    <span>Login Providers</span>
+                </span>
+            </NavLink>
+            <AuthorizeView>
+                <Authorized>
+                    <NavLink href="cascadinguserinfo" class="navbar-item">
+                        <span class="icon-text has-text-dark">
+                            <span class="icon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <span>Cascading User Info</span>
+                        </span>
+                    </NavLink>
+
+                    <NavLink href="azurestaticwebappsuserinfo" class="navbar-item">
+                        <span class="icon-text has-text-dark">
+                            <span class="icon">
+                                <i class="fa fa-user-circle"></i>
+                            </span>
+                            <span>Azure Static Web Apps User Info</span>
+                        </span>
+                    </NavLink>
+                    
+                    <NavLink href="@_azureStaticWebAppNavigationService.Logout().ToString()" class="navbar-item">
+                        <span class="icon-text has-text-dark">
+                            <span class="icon">
+                                <i class="fa fa-sign-out-alt"></i>
+                            </span>
+                            <span>Logout</span>
+                        </span>
+                    </NavLink>
+
+                </Authorized>
+            </AuthorizeView>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a href="https://github.com/mumby0168">
+                    <span class="icon-text has-text-dark">
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                        <span>GitHub</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<hr style="border-bottom: 1px solid #363636; margin: 0; opacity: 0.2"/>
+
+@code {
+
+    void ToggleBurger()
+    {
+        IsMenuVisible = !IsMenuVisible;
+    }
+
+    bool IsMenuVisible { get; set; }
+
+    string NavBarMenuClass => IsMenuVisible ? "navbar-menu is-active" : "navbar-menu";
+
+}
