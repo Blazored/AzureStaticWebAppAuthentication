@@ -7,6 +7,26 @@
         <LangVersion>9</LangVersion>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <Authors>Billy Mumby</Authors>
+        <Company></Company>
+        <Copyright>Copyright 2021 (c) Billy Mumby. All rights reserved.</Copyright>
+        
+        <Description>A library to help integrate Blazor with azure static web app authentication.</Description>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+        <!-- NuGet settings -->
+        <PackageId>Blazored.AzureStaticWebAppAuthentication</PackageId>
+        <PackageTags>Blazored;Blazor;Razor;Components;Auth;AzureStaticWebApps;ASP.NET Core;CSharp;Web;Azure;Static</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Blazored/AzureStaticWebAppAuthentication</PackageProjectUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/Blazored/AzureStaticWebAppAuthentication</RepositoryUrl>
+
+        <!-- SourceLink settings -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
     </PropertyGroup>
 
     <ItemGroup>
