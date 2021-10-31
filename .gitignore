@@ -12,6 +12,7 @@
 
 .vscode
 .DS_STORE
+.idea
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
