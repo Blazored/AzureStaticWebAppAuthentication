@@ -7,10 +7,12 @@ namespace Blazored.AzureStaticWebAppAuthentication.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddBlazorAzureStaticWebApp(this IServiceCollection services) =>
+        public static IServiceCollection AddBlazoredAzureStaticWebApp(this IServiceCollection services) =>
             services
                 .AddScoped<IAzureStaticWebAppNavigationService, AzureStaticWebAppNavigationService>()
                 .AddScoped<AuthenticationStateProvider, AzureStaticWebAppAuthenticationStateProvider>()
-                .AddScoped<IAzureStaticWebAppUserProvider, AzureStaticWebAppUserProvider>();
+                .AddScoped<IAzureStaticWebAppUserProvider, AzureStaticWebAppUserProvider>()
+                .AddScoped<IAzureStaticWebAppLoginProvider, AzureStaticWebAppNavigationService>()
+                .AddScoped<IAzureStaticWebAppNavigator, AzureStaticWebAppNavigationService>();
     }
 }

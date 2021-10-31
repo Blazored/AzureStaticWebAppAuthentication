@@ -18,7 +18,7 @@ namespace Blazor.AzureStaticWebApp.Sample
                 { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             builder.Services.AddAuthorizationCore();
-            builder.Services.AddBlazorAzureStaticWebApp();
+            builder.Services.AddBlazoredAzureStaticWebApp();
 
             await builder.Build().RunAsync();
         }

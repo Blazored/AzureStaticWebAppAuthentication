@@ -20,7 +20,7 @@ public class Program
         builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
         builder.Services.AddAuthorizationCore();
-        builder.Services.AddBlazorAzureStaticWebApp();
+        builder.Services.AddBlazoredAzureStaticWebApp();
 
         await builder.Build().RunAsync();
     }
